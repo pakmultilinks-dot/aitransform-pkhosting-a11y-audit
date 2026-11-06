@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>aiTransform and PK Hosting: Accessibility, Responsive and Cross-Browser Audit</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px;color:#1a1a1a;line-height:1.55}
+h1{font-size:28px;margin-bottom:4px}h2{font-size:20px;margin-top:32px;border-bottom:2px solid #1aa54a;padding-bottom:4px}h3{font-size:16px;margin-top:20px}
+p.lead{color:#555}.pill{display:inline-block;background:#1aa54a;color:#fff;padding:2px 10px;border-radius:12px;font-size:13px;margin-right:6px}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid #ccc;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f2f2f2}.sev-m{background:#fff3cd}.sev-l{background:#e8f5e9}.fail{color:#a00;font-weight:600}.pass{color:#1a7a2e;font-weight:600}.notrun{color:#666}
+code{background:#f2f2f2;padding:1px 5px;border-radius:3px}
+.note{background:#f7f7f7;border-left:4px solid #1aa54a;padding:10px 14px;margin:14px 0}
+footer{margin-top:40px;color:#777;font-size:13px;border-top:1px solid #ddd;padding-top:12px}
+</style>
+</head>
+<body>
+<h1>aiTransform and PK Hosting: Accessibility, Responsive and Cross-Browser Audit</h1>
+<p class="lead">Task TPT-2026-03078, 4 pts, due 11 November 2026. Standard: WCAG 2.1 AA. Checked 6 November 2026. Public pages only. No forms submitted, no logins, no load testing, no security testing.</p>
+<p><span class="pill">13 bugs found</span><span class="pill">8 Medium</span><span class="pill">5 Low</span><span class="pill">0 High</span></p>
+
+<h2>Result in one line</h2>
+<p>13 bugs in total, all Medium or Low, none High. aiTransform carries 9 of them (5 from the automated checks, 4 from the live checks). PK Hosting passed every automated check on all 3 pages, and its 4 live bugs are all Low except one Medium (a repeated billing toggle). Mobile layout, 200 percent zoom, Firefox, and Safari were not testable in this environment and are listed as not run, not as passes.</p>
+
+<h2>Pages audited</h2>
+<table>
+<tr><th>#</th><th>Page</th><th>URL</th></tr>
+<tr><td>1</td><td>aiTransform home</td><td>https://aitransform.com/</td></tr>
+<tr><td>2</td><td>aiTransform blog</td><td>https://aitransform.com/blog/</td></tr>
+<tr><td>3</td><td>aiTransform terms</td><td>https://aitransform.com/terms</td></tr>
+<tr><td>4</td><td>PK Hosting home</td><td>https://www.pkhosting.com/</td></tr>
+<tr><td>5</td><td>PK Hosting pricing</td><td>https://www.pkhosting.com/pricing/</td></tr>
+<tr><td>6</td><td>PK Hosting WordPress hosting</td><td>https://www.pkhosting.com/wordpress-hosting/</td></tr>
+</table>
+<p>aiTransform tool pages (AI Writer, Image, Code, Chat) sit behind login, so they were not audited. The aiTransform Image Generator was checked as an in-page tab on the home page, because no separate public tool page exists. aiTransform /pricing returns 404 and was not used.</p>
+
+<h2>Method</h2>
+<p><strong>Automated checks:</strong> a Python checker (<code>automation/auto_checks.py</code>) ran on saved HTML copies of all 6 pages, covering lang, title, viewport, alt text, input labels, heading order, link and button names, duplicate ids, and inline-style contrast only. Results in <code>automation/auto_results.json</code>.</p>
+<p><strong>Live checks:</strong> a Chromium browser session at desktop size, checking keyboard navigation, visible focus, contrast by eye, layout, and the mobile menu control in the DOM. Desktop size was 1919x998, not the requested 1440x900, because the browser cannot set a viewport size.</p>
+<p><strong>Not run:</strong> mobile 390x844 (no device emulation), zoom to 200 percent (the browser showed no change when zoom was applied), Firefox and Safari (not available here), console errors (not read).</p>
+
+<h2>Bug log</h2>
+<table>
+<tr><th>ID</th><th>Site and page</th><th>Bug</th><th>Severity</th></tr>
+<tr class="sev-m"><td>B1</td><td>aiTransform home</td><td>Heading order: 12 skipped-level jumps, page starts with an h6 before the h1, feature blocks jump h2 to h4. The h1 is one long concatenated string that reads badly to a screen reader.</td><td>Medium</td></tr>
+<tr class="sev-m"><td>B2</td><td>aiTransform home, blog, terms</td><td>Mobile menu button (mobile-nav-trigger) has no accessible name: icon-only, no text, no aria-label, no title.</td><td>Medium</td></tr>
+<tr class="sev-l"><td>B3</td><td>aiTransform home</td><td>Duplicate ids on inline SVGs: instagram x2, adwords x2, paint0_linear x3.</td><td>Low</td></tr>
+<tr class="sev-m"><td>B4</td><td>aiTransform blog</td><td>Call-to-action link under "Blog Posts" has no text in the static HTML; its label appears to be injected by JavaScript. Live check still open.</td><td>Medium</td></tr>
+<tr class="sev-m"><td>B5</td><td>aiTransform terms</td><td>Same empty call-to-action link as B4. Live check still open.</td><td>Medium</td></tr>
+<tr class="sev-m"><td>B6</td><td>aiTransform home</td><td>No skip-to-content link: the first Tab lands on the logo link, so keyboard users must tab through the whole navigation.</td><td>Medium</td></tr>
+<tr class="sev-m"><td>B7</td><td>aiTransform home, Image Generator tab</td><td>Low contrast in the hero: navigation links and "Discover aiTransform" / "Do something extraordinary" are pale lavender/white on the light-purple gradient; audience labels faint; unselected tool buttons grey on white. Ratio not measured, visual observation only.</td><td>Medium</td></tr>
+<tr class="sev-l"><td>B8</td><td>aiTransform home</td><td>Floating chat avatar button at bottom-right has no visible text label.</td><td>Low</td></tr>
+<tr class="sev-m"><td>B9</td><td>aiTransform Image Generator tab</td><td>Composite image alt text "Imagine, Genearate, Publish." does not describe the six example images (robot, cat, house) it shows.</td><td>Medium</td></tr>
+<tr class="sev-l"><td>B10</td><td>PK Hosting home</td><td>Top-bar text support@pkhosting.com and (042) 35692952 is small light-grey on black.</td><td>Low</td></tr>
+<tr class="sev-l"><td>B11</td><td>PK Hosting home</td><td>"Save up to 16%" dark-red on a pale-pink pill; struck-through original prices small grey-green.</td><td>Low</td></tr>
+<tr class="sev-m"><td>B12</td><td>PK Hosting pricing</td><td>Billing-term toggle (Monthly / Annually / 2 years / 3 years) repeated six times, once per plan section; keyboard users must tab through it repeatedly.</td><td>Medium</td></tr>
+<tr class="sev-l"><td>B13</td><td>PK Hosting pricing</td><td>Small grey renewal text, "Save up to 16% / 36%", and "Supplier offer ends 31 Dec 2026" on domain cards.</td><td>Low</td></tr>
+</table>
+<p>B2, B4, and B5 come from shared header, footer, and template components, so one template fix clears them on all three aiTransform pages. Full detail, steps to reproduce, and recommended fixes: <code>docs/bug-log.md</code>.</p>
+
+<h2>What passed</h2>
+<ul>
+<li>html lang attribute: pass on all 6 pages (aiTransform en, PK Hosting en-PK).</li>
+<li>Page titles: present, non-empty, unique on all 6 pages.</li>
+<li>Viewport meta: present on all 6 pages.</li>
+<li>Images with alt text: 0 missing alt across all 6 pages (automated check).</li>
+<li>Form inputs labelled: pass on all 6 pages.</li>
+<li>Exactly one h1 per page: pass on all 6 pages.</li>
+<li>Keyboard focus: visible with a logical order on the 4 pages checked live (aiTransform home and Image Generator tab: black outline; PK Hosting home and pricing: green outline).</li>
+<li>PK Hosting skip-to-content link: present on home and pricing.</li>
+<li>PK Hosting contrast: generally good (white on dark-green buttons, black body text on white).</li>
+<li>PK Hosting pricing tables: proper column and row headers.</li>
+</ul>
+
+<h2>Test cases (28)</h2>
+<p>Full plan with steps, expected results, and per-case status: <code>docs/test-plan.md</code>.</p>
+<table>
+<tr><th>Group</th><th>Cases</th><th>Result</th></tr>
+<tr><td>Accessibility A1-A12</td><td>12</td><td>Automated A1-A4, A6, A10 pass; A5, A7, A8, A9 fail (bugs B1-B5); A11 pass on the 4 pages checked live; A12 not run (zoom unverifiable)</td></tr>
+<tr><td>Responsive R1-R8</td><td>8</td><td>R1 pass (viewport meta); R8 pass at 1919x998 on the 4 pages checked live; R2-R7 not run (mobile 390x844 not testable)</td></tr>
+<tr><td>Cross-browser C1-C8</td><td>8</td><td>C1-C6 Chromium pass at 1919x998 on the pages checked live; C7 not run (console not read); C8 not run; Firefox and Safari not run on any case</td></tr>
+</table>
+
+<h2>What was not verified</h2>
+<div class="note">
+<p>These are listed as not run, never as passes. They need a different environment: a browser with device emulation and working zoom, plus Firefox and Safari.</p>
+<ul>
+<li>Mobile 390x844 layout, navigation, tap targets, and overflow on all 6 pages.</li>
+<li>Zoom to 200 percent and text resize on all 6 pages.</li>
+<li>Firefox and Safari rendering on all 6 pages.</li>
+<li>B4 and B5 live check: whether JavaScript fills the empty call-to-action label on aiTransform blog and terms.</li>
+<li>Console errors on all 6 pages.</li>
+<li>Stylesheet colour contrast ratios: all text colours come from external CSS, so no ratio was measured for any stylesheet colour. The automated checker scored inline styles only (0 elements had a known inline background).</li>
+</ul>
+</div>
+
+<h2>Files in this repo</h2>
+<ul>
+<li><code>README.md</code>: summary, method, headline results, how to re-run the checks.</li>
+<li><code>docs/test-plan.md</code>: test plan, 28 test cases, scope, tools.</li>
+<li><code>docs/bug-log.md</code>: every bug with steps to reproduce, expected and actual result, severity, screenshot reference, recommended fix.</li>
+<li><code>docs/automated-findings.md</code>: automated failures, passes, and what could not be verified.</li>
+<li><code>docs/screenshots/</code>: the 4 live-check page captures (desktop).</li>
+<li><code>docs/saved-pages/</code>: the exact HTML copies the automated checks ran against.</li>
+<li><code>automation/auto_checks.py</code> and <code>automation/auto_results.json</code>: the checker and its raw results.</li>
+</ul>
+
+<footer>Prepared by Abdur Rehman. Report date 6 November 2026. Nothing in this report was submitted on the TechAbout portal.</footer>
+</body>
+</html>

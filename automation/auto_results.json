@@ -1,0 +1,523 @@
+{
+  "standard": "WCAG 2.1 AA",
+  "method": "static HTML analysis of saved pages; contrast covers inline styles only",
+  "pages": [
+    {
+      "file": "page-1-aitransform-home.html",
+      "url": "https://aitransform.com/",
+      "label": "aiTransform home",
+      "bytes": 1557012,
+      "checks": {
+        "lang": {
+          "status": "pass",
+          "value": "en",
+          "detail": "html lang attribute present: 'en'"
+        },
+        "title": {
+          "status": "pass",
+          "value": "aiTransform - One-Stop conversion to Artificial Intelligence",
+          "detail": "title present and non-empty"
+        },
+        "viewport": {
+          "status": "pass",
+          "value": "width=device-width, initial-scale=1.0",
+          "detail": "viewport meta present"
+        },
+        "img_alt": {
+          "status": "pass",
+          "total_images": 22,
+          "missing_or_empty_alt": 0,
+          "examples": [],
+          "detail": "0 of 22 images missing a non-empty alt"
+        },
+        "input_labels": {
+          "status": "pass",
+          "total_inputs": 0,
+          "unlabeled": 0,
+          "examples": [],
+          "detail": "0 of 0 visible inputs without a label"
+        },
+        "headings": {
+          "status": "fail",
+          "total_headings": 404,
+          "h1_count": 1,
+          "h1_text": [
+            "Ultimate AITransformationTrainingBrandingVoiceoverProgrammerImage GeneratorSpeech To Text"
+          ],
+          "skipped_levels": 12,
+          "examples": [
+            "heading 4 (AI Generator): level jumps from h2 to h4",
+            "heading 10 (Say goodbye to writer’s blockAI): level jumps from h4 to h6",
+            "heading 12 (Unleash your creativityAI): level jumps from h3 to h6",
+            "heading 14 (he future of development'AI): level jumps from h3 to h6",
+            "heading 16 (Intuitive / Humanlike ChatbotAI): level jumps from h3 to h6"
+          ],
+          "detail": "h1 count 1; skipped-level jumps 12"
+        },
+        "link_text": {
+          "status": "pass",
+          "total_links": 27,
+          "bad_links": 0,
+          "examples": [],
+          "detail": "0 of 27 links with empty or generic text"
+        },
+        "button_names": {
+          "status": "fail",
+          "total_buttons": 38,
+          "unnamed_buttons": 1,
+          "examples": [
+            "button type= class=mobile-nav-trigger"
+          ],
+          "detail": "1 of 38 buttons without an accessible name"
+        },
+        "duplicate_ids": {
+          "status": "fail",
+          "total_ids": 46,
+          "duplicated_ids": 3,
+          "examples": [
+            "instagram x2",
+            "adwords x2",
+            "paint0_linear x3"
+          ],
+          "detail": "3 duplicated id values"
+        },
+        "inline_contrast": {
+          "status": "pass",
+          "elements_checked": 0,
+          "inline_fg_with_stylesheet_bg": 1,
+          "below_4_5": 0,
+          "examples": [],
+          "detail": "0 inline-styled text elements with a known inline background checked, 0 below 4.5:1; 1 more have an inline foreground but a stylesheet background and are not verifiable statically"
+        },
+        "tap_targets": {
+          "status": "not verified",
+          "total_links_and_buttons": 65,
+          "detail": "Rendered size cannot be verified from static HTML; needs a live check at 1440x900 and 390x844"
+        }
+      }
+    },
+    {
+      "file": "page-2-aitransform-blog.html",
+      "url": "https://aitransform.com/blog/",
+      "label": "aiTransform blog",
+      "bytes": 24263,
+      "checks": {
+        "lang": {
+          "status": "pass",
+          "value": "en",
+          "detail": "html lang attribute present: 'en'"
+        },
+        "title": {
+          "status": "pass",
+          "value": "Blog Posts\n                     | aiTransform",
+          "detail": "title present and non-empty"
+        },
+        "viewport": {
+          "status": "pass",
+          "value": "width=device-width, initial-scale=1.0",
+          "detail": "viewport meta present"
+        },
+        "img_alt": {
+          "status": "pass",
+          "total_images": 2,
+          "missing_or_empty_alt": 0,
+          "examples": [],
+          "detail": "0 of 2 images missing a non-empty alt"
+        },
+        "input_labels": {
+          "status": "pass",
+          "total_inputs": 0,
+          "unlabeled": 0,
+          "examples": [],
+          "detail": "0 of 0 visible inputs without a label"
+        },
+        "headings": {
+          "status": "pass",
+          "total_headings": 1,
+          "h1_count": 1,
+          "h1_text": [
+            "Blog Posts"
+          ],
+          "skipped_levels": 0,
+          "examples": [],
+          "detail": "h1 count 1; skipped-level jumps 0"
+        },
+        "link_text": {
+          "status": "fail",
+          "total_links": 18,
+          "bad_links": 1,
+          "examples": [
+            "empty link href=#"
+          ],
+          "detail": "1 of 18 links with empty or generic text"
+        },
+        "button_names": {
+          "status": "fail",
+          "total_buttons": 2,
+          "unnamed_buttons": 1,
+          "examples": [
+            "button type= class=mobile-nav-trigger"
+          ],
+          "detail": "1 of 2 buttons without an accessible name"
+        },
+        "duplicate_ids": {
+          "status": "pass",
+          "total_ids": 4,
+          "duplicated_ids": 0,
+          "examples": [],
+          "detail": "0 duplicated id values"
+        },
+        "inline_contrast": {
+          "status": "pass",
+          "elements_checked": 0,
+          "inline_fg_with_stylesheet_bg": 1,
+          "below_4_5": 0,
+          "examples": [],
+          "detail": "0 inline-styled text elements with a known inline background checked, 0 below 4.5:1; 1 more have an inline foreground but a stylesheet background and are not verifiable statically"
+        },
+        "tap_targets": {
+          "status": "not verified",
+          "total_links_and_buttons": 20,
+          "detail": "Rendered size cannot be verified from static HTML; needs a live check at 1440x900 and 390x844"
+        }
+      }
+    },
+    {
+      "file": "page-3-aitransform-terms.html",
+      "url": "https://aitransform.com/terms",
+      "label": "aiTransform terms",
+      "bytes": 29005,
+      "checks": {
+        "lang": {
+          "status": "pass",
+          "value": "en",
+          "detail": "html lang attribute present: 'en'"
+        },
+        "title": {
+          "status": "pass",
+          "value": "aiTransform\n                     | aiTransform",
+          "detail": "title present and non-empty"
+        },
+        "viewport": {
+          "status": "pass",
+          "value": "width=device-width, initial-scale=1.0",
+          "detail": "viewport meta present"
+        },
+        "img_alt": {
+          "status": "pass",
+          "total_images": 2,
+          "missing_or_empty_alt": 0,
+          "examples": [],
+          "detail": "0 of 2 images missing a non-empty alt"
+        },
+        "input_labels": {
+          "status": "pass",
+          "total_inputs": 0,
+          "unlabeled": 0,
+          "examples": [],
+          "detail": "0 of 0 visible inputs without a label"
+        },
+        "headings": {
+          "status": "pass",
+          "total_headings": 1,
+          "h1_count": 1,
+          "h1_text": [
+            "Terms and Conditions"
+          ],
+          "skipped_levels": 0,
+          "examples": [],
+          "detail": "h1 count 1; skipped-level jumps 0"
+        },
+        "link_text": {
+          "status": "fail",
+          "total_links": 20,
+          "bad_links": 1,
+          "examples": [
+            "empty link href=#"
+          ],
+          "detail": "1 of 20 links with empty or generic text"
+        },
+        "button_names": {
+          "status": "fail",
+          "total_buttons": 2,
+          "unnamed_buttons": 1,
+          "examples": [
+            "button type= class=mobile-nav-trigger"
+          ],
+          "detail": "1 of 2 buttons without an accessible name"
+        },
+        "duplicate_ids": {
+          "status": "pass",
+          "total_ids": 4,
+          "duplicated_ids": 0,
+          "examples": [],
+          "detail": "0 duplicated id values"
+        },
+        "inline_contrast": {
+          "status": "pass",
+          "elements_checked": 0,
+          "inline_fg_with_stylesheet_bg": 1,
+          "below_4_5": 0,
+          "examples": [],
+          "detail": "0 inline-styled text elements with a known inline background checked, 0 below 4.5:1; 1 more have an inline foreground but a stylesheet background and are not verifiable statically"
+        },
+        "tap_targets": {
+          "status": "not verified",
+          "total_links_and_buttons": 22,
+          "detail": "Rendered size cannot be verified from static HTML; needs a live check at 1440x900 and 390x844"
+        }
+      }
+    },
+    {
+      "file": "page-4-pkhosting-home.html",
+      "url": "https://www.pkhosting.com/",
+      "label": "PK Hosting home",
+      "bytes": 711879,
+      "checks": {
+        "lang": {
+          "status": "pass",
+          "value": "en-PK",
+          "detail": "html lang attribute present: 'en-PK'"
+        },
+        "title": {
+          "status": "pass",
+          "value": "PK Hosting — Quality-Crafted Web Hosting Services in Pakistan",
+          "detail": "title present and non-empty"
+        },
+        "viewport": {
+          "status": "pass",
+          "value": "width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content",
+          "detail": "viewport meta present"
+        },
+        "img_alt": {
+          "status": "pass",
+          "total_images": 5,
+          "missing_or_empty_alt": 0,
+          "examples": [],
+          "detail": "0 of 5 images missing a non-empty alt"
+        },
+        "input_labels": {
+          "status": "pass",
+          "total_inputs": 1,
+          "unlabeled": 0,
+          "examples": [],
+          "detail": "0 of 1 visible inputs without a label"
+        },
+        "headings": {
+          "status": "pass",
+          "total_headings": 33,
+          "h1_count": 1,
+          "h1_text": [
+            "Web Hosting in Pakistan with Local Support"
+          ],
+          "skipped_levels": 0,
+          "examples": [],
+          "detail": "h1 count 1; skipped-level jumps 0"
+        },
+        "link_text": {
+          "status": "pass",
+          "total_links": 115,
+          "bad_links": 0,
+          "examples": [],
+          "detail": "0 of 115 links with empty or generic text"
+        },
+        "button_names": {
+          "status": "pass",
+          "total_buttons": 17,
+          "unnamed_buttons": 0,
+          "examples": [],
+          "detail": "0 of 17 buttons without an accessible name"
+        },
+        "duplicate_ids": {
+          "status": "pass",
+          "total_ids": 11,
+          "duplicated_ids": 0,
+          "examples": [],
+          "detail": "0 duplicated id values"
+        },
+        "inline_contrast": {
+          "status": "pass",
+          "elements_checked": 0,
+          "inline_fg_with_stylesheet_bg": 2,
+          "below_4_5": 0,
+          "examples": [],
+          "detail": "0 inline-styled text elements with a known inline background checked, 0 below 4.5:1; 2 more have an inline foreground but a stylesheet background and are not verifiable statically"
+        },
+        "tap_targets": {
+          "status": "not verified",
+          "total_links_and_buttons": 132,
+          "detail": "Rendered size cannot be verified from static HTML; needs a live check at 1440x900 and 390x844"
+        }
+      }
+    },
+    {
+      "file": "page-5-pkhosting-pricing.html",
+      "url": "https://www.pkhosting.com/pricing/",
+      "label": "PK Hosting pricing",
+      "bytes": 870801,
+      "checks": {
+        "lang": {
+          "status": "pass",
+          "value": "en-PK",
+          "detail": "html lang attribute present: 'en-PK'"
+        },
+        "title": {
+          "status": "pass",
+          "value": "Web Hosting Pricing in Pakistan | PK Hosting",
+          "detail": "title present and non-empty"
+        },
+        "viewport": {
+          "status": "pass",
+          "value": "width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content",
+          "detail": "viewport meta present"
+        },
+        "img_alt": {
+          "status": "pass",
+          "total_images": 5,
+          "missing_or_empty_alt": 0,
+          "examples": [],
+          "detail": "0 of 5 images missing a non-empty alt"
+        },
+        "input_labels": {
+          "status": "pass",
+          "total_inputs": 1,
+          "unlabeled": 0,
+          "examples": [],
+          "detail": "0 of 1 visible inputs without a label"
+        },
+        "headings": {
+          "status": "pass",
+          "total_headings": 90,
+          "h1_count": 1,
+          "h1_text": [
+            "Hosting, server and domain pricing"
+          ],
+          "skipped_levels": 0,
+          "examples": [],
+          "detail": "h1 count 1; skipped-level jumps 0"
+        },
+        "link_text": {
+          "status": "pass",
+          "total_links": 145,
+          "bad_links": 0,
+          "examples": [],
+          "detail": "0 of 145 links with empty or generic text"
+        },
+        "button_names": {
+          "status": "pass",
+          "total_buttons": 44,
+          "unnamed_buttons": 0,
+          "examples": [],
+          "detail": "0 of 44 buttons without an accessible name"
+        },
+        "duplicate_ids": {
+          "status": "pass",
+          "total_ids": 20,
+          "duplicated_ids": 0,
+          "examples": [],
+          "detail": "0 duplicated id values"
+        },
+        "inline_contrast": {
+          "status": "pass",
+          "elements_checked": 0,
+          "inline_fg_with_stylesheet_bg": 2,
+          "below_4_5": 0,
+          "examples": [],
+          "detail": "0 inline-styled text elements with a known inline background checked, 0 below 4.5:1; 2 more have an inline foreground but a stylesheet background and are not verifiable statically"
+        },
+        "tap_targets": {
+          "status": "not verified",
+          "total_links_and_buttons": 189,
+          "detail": "Rendered size cannot be verified from static HTML; needs a live check at 1440x900 and 390x844"
+        }
+      }
+    },
+    {
+      "file": "page-6-pkhosting-wordpress.html",
+      "url": "https://www.pkhosting.com/wordpress-hosting/",
+      "label": "PK Hosting WordPress hosting",
+      "bytes": 511199,
+      "checks": {
+        "lang": {
+          "status": "pass",
+          "value": "en-PK",
+          "detail": "html lang attribute present: 'en-PK'"
+        },
+        "title": {
+          "status": "pass",
+          "value": "WordPress Hosting in Pakistan | PK Hosting",
+          "detail": "title present and non-empty"
+        },
+        "viewport": {
+          "status": "pass",
+          "value": "width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content",
+          "detail": "viewport meta present"
+        },
+        "img_alt": {
+          "status": "pass",
+          "total_images": 5,
+          "missing_or_empty_alt": 0,
+          "examples": [],
+          "detail": "0 of 5 images missing a non-empty alt"
+        },
+        "input_labels": {
+          "status": "pass",
+          "total_inputs": 0,
+          "unlabeled": 0,
+          "examples": [],
+          "detail": "0 of 0 visible inputs without a label"
+        },
+        "headings": {
+          "status": "pass",
+          "total_headings": 35,
+          "h1_count": 1,
+          "h1_text": [
+            "Managed WordPress hosting, easy to manage"
+          ],
+          "skipped_levels": 0,
+          "examples": [],
+          "detail": "h1 count 1; skipped-level jumps 0"
+        },
+        "link_text": {
+          "status": "pass",
+          "total_links": 117,
+          "bad_links": 0,
+          "examples": [],
+          "detail": "0 of 117 links with empty or generic text"
+        },
+        "button_names": {
+          "status": "pass",
+          "total_buttons": 22,
+          "unnamed_buttons": 0,
+          "examples": [],
+          "detail": "0 of 22 buttons without an accessible name"
+        },
+        "duplicate_ids": {
+          "status": "pass",
+          "total_ids": 21,
+          "duplicated_ids": 0,
+          "examples": [],
+          "detail": "0 duplicated id values"
+        },
+        "inline_contrast": {
+          "status": "pass",
+          "elements_checked": 0,
+          "inline_fg_with_stylesheet_bg": 2,
+          "below_4_5": 0,
+          "examples": [],
+          "detail": "0 inline-styled text elements with a known inline background checked, 0 below 4.5:1; 2 more have an inline foreground but a stylesheet background and are not verifiable statically"
+        },
+        "tap_targets": {
+          "status": "not verified",
+          "total_links_and_buttons": 139,
+          "detail": "Rendered size cannot be verified from static HTML; needs a live check at 1440x900 and 390x844"
+        }
+      }
+    }
+  ],
+  "title_uniqueness": {
+    "status": "pass",
+    "duplicated_titles": [],
+    "detail": "all 6 titles unique"
+  }
+}
